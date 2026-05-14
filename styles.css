@@ -68,6 +68,13 @@
   --nav-bg: var(--color-surface);
   --nav-link-hover: rgba(13, 74, 195, 0.08);
 
+  --color-blue-010: #f7fbff;
+  --color-blue-100: #c6dcff;
+  --icon-btn-focus-overlay: rgba(13, 74, 195, 0.24);
+  /* Homepage Sticky Bar — Floating buttons (Figma node 25:3984) */
+  --shadow-fab: 1px 2px 6px rgba(138, 138, 138, 0.17);
+  --shadow-fab-focus: 1px 2px 12px rgba(138, 138, 138, 0.17);
+
   /* Shapes §6 — default 4px; chips pill */
   --zui-radius-default: 4px;
   --zui-radius-chip: 9999px;
@@ -515,14 +522,10 @@ body {
   padding: 0;
   border-radius: 100px;
   cursor: pointer;
-  /* Transparent border keeps ghost & solid the same outer diameter (border-box). */
+  /* 1px base border; focus uses 2px per Figma without changing outer size (border-box). */
   border: 1px solid transparent;
-  box-shadow: var(--shadow-button);
-  transition:
-    background-color 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.22s ease;
+  box-shadow: var(--shadow-fab);
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -531,33 +534,60 @@ body {
   }
 }
 
-.icon-btn:focus-visible {
-  outline: 2px solid var(--color-link);
-  outline-offset: 2px;
-}
-
-.icon-btn:active {
-  opacity: 0.88;
-}
-
 .icon-btn--ghost {
+  border-width: 1px;
+  border-style: solid;
   border-color: var(--color-link);
-  background: var(--color-brand-tint);
+  background: var(--color-blue-010);
 }
 
 .icon-btn--ghost:hover {
-  background: rgba(13, 74, 195, 0.1);
-  border-color: var(--color-blue-700);
+  background: var(--color-blue-050);
+  border-color: var(--color-link);
+  border-width: 1px;
+}
+
+.icon-btn--ghost:active {
+  background: var(--color-blue-100);
+  border-color: var(--color-link);
+  border-width: 1px;
+}
+
+.icon-btn--ghost:focus-visible {
+  outline: none;
+  background: var(--icon-btn-focus-overlay);
+  border-color: var(--color-link);
+  border-width: 2px;
+  box-shadow: var(--shadow-fab-focus);
 }
 
 .icon-btn--solid {
+  border-width: 1px;
+  border-style: solid;
   border-color: transparent;
   background: var(--color-link);
 }
 
 .icon-btn--solid:hover {
-  background: var(--color-blue-600);
-  box-shadow: 0 2px 8px rgba(13, 74, 195, 0.28);
+  background: color-mix(in srgb, white 12%, var(--color-link));
+  border-color: transparent;
+  border-width: 1px;
+  box-shadow: var(--shadow-fab);
+}
+
+.icon-btn--solid:active {
+  background: color-mix(in srgb, white 20%, var(--color-link));
+  border-color: transparent;
+  border-width: 1px;
+  box-shadow: var(--shadow-fab);
+}
+
+.icon-btn--solid:focus-visible {
+  outline: none;
+  background: color-mix(in srgb, white 20%, var(--color-link));
+  border-color: var(--color-link);
+  border-width: 2px;
+  box-shadow: var(--shadow-fab);
 }
 
 .icon-btn__glyph {
