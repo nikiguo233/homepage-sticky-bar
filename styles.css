@@ -89,6 +89,10 @@
   --header-inner-max: 1196px;
   --header-padding-x: 16px;
   --nav-width: 244px;
+  /* Widget cards: #0D4AC3 @ 13% opacity, 4px stroke; Figma outer / inner radius */
+  --widget-card-border: rgba(13, 74, 195, 0.13);
+  --widget-radius-outer: 14px;
+  --widget-radius-inner: 10px;
 }
 
 *,
@@ -258,7 +262,8 @@ body {
   border-bottom-width: calc(var(--p) * 1px);
   border-bottom-style: solid;
   border-bottom-color: var(--color-divider);
-  box-shadow: 0 1px calc(8px * var(--p)) rgba(11, 17, 22, calc(0.04 + var(--p) * 0.04));
+  /* No shadow in hero (p=0) — a 1px y-offset with 0 blur reads as a grey hairline */
+  box-shadow: 0 calc(1px * var(--p)) calc(8px * var(--p)) rgba(11, 17, 22, calc(var(--p) * (0.08 + var(--p) * 0.04)));
 }
 
 .sticky-header__inner {
@@ -624,9 +629,9 @@ body {
 }
 
 .widget-card {
-  border-radius: var(--zui-radius-default);
+  border-radius: var(--widget-radius-outer);
   background: var(--color-surface);
-  border: 1px solid var(--color-border-default);
+  border: 4px solid var(--widget-card-border);
   box-shadow: var(--zui-elevation-raised);
   padding: 20px;
   min-height: 0;
@@ -671,7 +676,7 @@ body {
   line-height: var(--zui-font-body-m-lh);
   letter-spacing: var(--zui-font-body-m-tracking);
   padding: 6px 12px;
-  border-radius: var(--zui-radius-default);
+  border-radius: var(--widget-radius-inner);
   border: 1px solid var(--color-border-default);
   background: var(--color-surface);
   color: var(--color-cool-gray-800);
@@ -720,7 +725,7 @@ body {
   line-height: var(--zui-font-tableheader-lh);
   letter-spacing: var(--zui-font-tableheader-tracking);
   padding: 4px 10px;
-  border-radius: var(--zui-radius-chip);
+  border-radius: var(--widget-radius-inner);
   background: rgba(53, 59, 63, 0.08);
   color: var(--color-cool-gray-800);
 }
@@ -917,7 +922,7 @@ body {
 .widget-toggle__ui {
   width: 36px;
   height: 20px;
-  border-radius: var(--zui-radius-chip);
+  border-radius: var(--widget-radius-inner);
   background: var(--color-cool-gray-200);
   position: relative;
   transition: background 0.2s ease;
@@ -1000,7 +1005,7 @@ body {
   min-width: 0;
   padding: 0 10px;
   border: 1px solid var(--color-border-default);
-  border-radius: var(--zui-radius-default);
+  border-radius: var(--widget-radius-inner);
   background: var(--color-surface);
 }
 
@@ -1027,7 +1032,7 @@ body {
   line-height: var(--zui-font-body-m-lh);
   letter-spacing: var(--zui-font-body-m-tracking);
   padding: 10px 12px;
-  border-radius: var(--zui-radius-default);
+  border-radius: var(--widget-radius-inner);
   border: 1px solid var(--color-border-default);
   background: var(--color-surface);
   color: var(--color-cool-gray-900);
@@ -1077,8 +1082,9 @@ body {
 
 .widget-table-wrap {
   overflow-x: auto;
+  overflow-y: hidden;
   margin-bottom: 12px;
-  border-radius: var(--zui-radius-default);
+  border-radius: var(--widget-radius-inner);
   border: 1px solid var(--color-divider);
 }
 
@@ -1122,7 +1128,7 @@ body {
 .widget-badge {
   display: inline-block;
   padding: 3px 10px;
-  border-radius: var(--zui-radius-chip);
+  border-radius: var(--widget-radius-inner);
   font-size: var(--zui-font-overline-size);
   font-weight: 600;
   line-height: var(--zui-font-overline-lh);
