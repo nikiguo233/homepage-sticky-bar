@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
   --color-text-high: rgba(0, 0, 0, 0.9);
   --color-text-medium: rgba(0, 0, 0, 0.6);
   --color-placeholder-hero: #575e63;
@@ -9,15 +10,111 @@
   --shadow-header: 1px 2px 12px rgba(138, 138, 138, 0.17);
   --shadow-button: 1px 2px 6px rgba(138, 138, 138, 0.17);
   --shadow-search-inner: 1px 2px 6px rgba(138, 138, 138, 0.17);
+=======
+  /* Occam / ZDS — see OCCAM_DESIGN_SYSTEM.md (typography §1, colors §2, elevation §5, shapes §6) */
+  --zui-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  --zui-font-monospace: "IBM Plex Mono", "SF Mono", "Segoe UI Mono", "Roboto Mono", "Ubuntu Mono", Menlo, Consolas,
+    Courier, monospace;
+
+  /* Type ramp (numeric tokens used in font shorthand on elements) */
+  --zui-font-headline-l-size: 28px;
+  --zui-font-headline-l-lh: 40px;
+  --zui-font-headline-l-weight: 500;
+  --zui-font-title-l-size: 17px;
+  --zui-font-title-l-lh: 28px;
+  --zui-font-title-l-weight: 600;
+  --zui-font-title-l-tracking: 0.1px;
+  --zui-font-body-m-size: 13px;
+  --zui-font-body-m-lh: 18px;
+  --zui-font-body-m-weight: 400;
+  --zui-font-body-m-tracking: 0.1px;
+  --zui-font-body-l-size: 15px;
+  --zui-font-body-l-lh: 24px;
+  --zui-font-caption-size: 11px;
+  --zui-font-caption-lh: 16px;
+  --zui-font-caption-tracking: 0.2px;
+  --zui-font-overline-size: 11px;
+  --zui-font-overline-lh: 16px;
+  --zui-font-overline-tracking: 1px;
+  --zui-font-tableheader-size: 12px;
+  --zui-font-tableheader-lh: 16px;
+  --zui-font-tableheader-tracking: 0.2px;
+
+  /* Monochrome / Extended (Occam §2) */
+  --color-cool-gray-900: #141719;
+  --color-cool-gray-800: #24292c;
+  --color-cool-gray-700: #353b3f;
+  --color-cool-gray-600: #464c51;
+  --color-cool-gray-500: #575e63;
+  --color-cool-gray-400: #767d82;
+  --color-cool-gray-300: #959ba0;
+  --color-cool-gray-200: #b5babe;
+  --color-cool-gray-100: #d6d9db;
+  --color-cool-gray-050: #f6f7f8;
+  --color-blue-050: #e4f1ff;
+  --color-blue-200: #8fb2f6;
+  --color-blue-500: #0d4ac3;
+  --color-blue-600: #06389c;
+  --color-blue-700: #042a75;
+  --color-green-500: #39805f;
+  --color-red-500: #b60f00;
+  --color-orange-500: #954c11;
+  --color-yellow-300: #e0b642;
+
+  /* Light theme semantic (Occam §2) */
+  --color-page-bg: #f6f7f8;
+  --color-surface: #ffffff;
+  --color-link: var(--color-blue-500);
+
+  /* App aliases (existing names map to Occam) */
+  --font-stack: var(--zui-font-system);
+  --font-display: var(--zui-font-system);
+  --color-text-high: rgba(20, 23, 25, 0.92);
+  --color-text-medium: rgba(53, 59, 63, 0.78);
+  --color-placeholder-hero: var(--color-cool-gray-500);
+  --color-border-input: rgba(53, 59, 63, 0.22);
+  --color-border-default: rgba(53, 59, 63, 0.18);
+  --color-divider: rgba(53, 59, 63, 0.14);
+  --color-brand-tint: var(--color-blue-050);
+  --nav-bg: var(--color-surface);
+  --nav-link-hover: rgba(13, 74, 195, 0.08);
+
+  --color-blue-010: #f7fbff;
+  --color-blue-100: #c6dcff;
+  --icon-btn-focus-overlay: rgba(13, 74, 195, 0.24);
+  /* Homepage Sticky Bar — Floating buttons (Figma node 25:3984) */
+  --shadow-fab: 1px 2px 6px rgba(138, 138, 138, 0.17);
+  --shadow-fab-focus: 1px 2px 12px rgba(138, 138, 138, 0.17);
+
+  /* Shapes §6 — default 4px; chips pill */
+  --zui-radius-default: 4px;
+  --zui-radius-chip: 9999px;
+
+  /* Elevation §5 — 2dp raised surfaces */
+  --zui-elevation-raised: 0 1px 2px rgba(11, 17, 22, 0.06), 0 1px 3px rgba(11, 17, 22, 0.05);
+  --zui-elevation-header: 0 1px 2px rgba(11, 17, 22, 0.05), 0 2px 10px rgba(11, 17, 22, 0.07);
+  --shadow-button: var(--zui-elevation-raised);
+  --shadow-search-inner: var(--zui-elevation-raised);
+  --shadow-header: var(--zui-elevation-header);
+
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
   --header-inner-max: 1196px;
   --header-padding-x: 16px;
   /* Figma Widget Card frame (node Revenue Overview): rgba(13,74,195,0.13) outer — edge reads as light blue */
   --widget-card-border: rgba(13, 74, 195, 0.26);
   --nav-width: 244px;
+<<<<<<< HEAD
   --nav-bg: #ffffff;
   --nav-link-hover: rgba(13, 74, 195, 0.08);
   --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+=======
+  /* Widget cards: #0D4AC3 @ 13% opacity, 4px stroke; Figma outer / inner radius */
+  --widget-card-border: rgba(13, 74, 195, 0.13);
+  --widget-radius-outer: 14px;
+  --widget-radius-inner: 10px;
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 *,
@@ -157,7 +254,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+<<<<<<< HEAD
   background: linear-gradient(160deg, #e8eef5 0%, #dce6f2 45%, #cfd9e8 100%);
+=======
+  background: linear-gradient(180deg, var(--color-page-bg) 0%, #e8ecf0 55%, #dde3ea 100%);
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .page {
@@ -661,6 +762,7 @@ body {
   height: 100%;
   border-radius: 50%;
   background: conic-gradient(
+<<<<<<< HEAD
     #22c55e 0deg 72deg,
     #3b82f6 72deg 144deg,
     #64748b 144deg 216deg,
@@ -668,6 +770,15 @@ body {
     #ef4444 288deg 360deg
   );
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+=======
+    var(--color-green-500) 0deg 72deg,
+    var(--color-blue-500) 72deg 144deg,
+    var(--color-cool-gray-500) 144deg 216deg,
+    var(--color-orange-500) 216deg 288deg,
+    var(--color-red-500) 288deg 360deg
+  );
+  box-shadow: inset 0 0 0 1px rgba(11, 17, 22, 0.06);
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-donut::after {
@@ -679,8 +790,13 @@ body {
   width: 54%;
   height: 54%;
   border-radius: 50%;
+<<<<<<< HEAD
   background: #fff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+=======
+  background: var(--color-surface);
+  box-shadow: 0 0 0 1px rgba(11, 17, 22, 0.04);
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-donut-center {
@@ -695,23 +811,40 @@ body {
 
 .widget-donut-total {
   display: block;
+<<<<<<< HEAD
   font-size: 17px;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.88);
+=======
+  font-size: var(--zui-font-title-l-size);
+  font-weight: 700;
+  color: var(--color-text-high);
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
   line-height: 1.2;
 }
 
 .widget-donut-label {
   display: block;
+<<<<<<< HEAD
   font-size: 11px;
   color: rgba(0, 0, 0, 0.5);
+=======
+  font-size: var(--zui-font-caption-size);
+  color: var(--color-text-medium);
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-donut-delta {
   display: block;
+<<<<<<< HEAD
   font-size: 12px;
   font-weight: 600;
   color: #16a34a;
+=======
+  font-size: var(--zui-font-tableheader-size);
+  font-weight: 600;
+  color: var(--color-green-500);
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
   margin-top: 2px;
 }
 
@@ -719,9 +852,16 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   font-size: 13px;
   color: rgba(0, 0, 0, 0.75);
   line-height: 1.8;
+=======
+  font-size: var(--zui-font-body-m-size);
+  line-height: var(--zui-font-body-m-lh);
+  letter-spacing: var(--zui-font-body-m-tracking);
+  color: var(--color-cool-gray-800);
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-legend li {
@@ -738,6 +878,7 @@ body {
 }
 
 .widget-dot--us {
+<<<<<<< HEAD
   background: #22c55e;
 }
 .widget-dot--emea {
@@ -751,6 +892,21 @@ body {
 }
 .widget-dot--other {
   background: #ef4444;
+=======
+  background: var(--color-green-500);
+}
+.widget-dot--emea {
+  background: var(--color-blue-500);
+}
+.widget-dot--apac {
+  background: var(--color-cool-gray-500);
+}
+.widget-dot--latam {
+  background: var(--color-orange-500);
+}
+.widget-dot--other {
+  background: var(--color-red-500);
+>>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-toolbar {
