@@ -1,1 +1,1 @@
-{"root":["./vite.config.ts","./src/main.ts","./src/sticky-header-scroll.ts","./src/vite-env.d.ts"],"version":"5.9.3"}
+{"root":["./src/stickyheaderfabgroup.tsx","./src/main.tsx","./src/sticky-header-scroll.ts","./src/theme.ts","./src/vite-env.d.ts"],"version":"5.9.3"}

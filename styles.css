@@ -1,16 +1,4 @@
 :root {
-<<<<<<< HEAD
-  --color-text-high: rgba(0, 0, 0, 0.9);
-  --color-text-medium: rgba(0, 0, 0, 0.6);
-  --color-placeholder-hero: #575e63;
-  --color-border-input: rgba(0, 0, 0, 0.24);
-  --color-divider: rgba(73, 90, 103, 0.24);
-  --color-link: #0d4ac3;
-  --color-brand-tint: #f7fbff;
-  --shadow-header: 1px 2px 12px rgba(138, 138, 138, 0.17);
-  --shadow-button: 1px 2px 6px rgba(138, 138, 138, 0.17);
-  --shadow-search-inner: 1px 2px 6px rgba(138, 138, 138, 0.17);
-=======
   /* Occam / ZDS — see OCCAM_DESIGN_SYSTEM.md (typography §1, colors §2, elevation §5, shapes §6) */
   --zui-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
@@ -98,23 +86,13 @@
   --shadow-search-inner: var(--zui-elevation-raised);
   --shadow-header: var(--zui-elevation-header);
 
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
   --header-inner-max: 1196px;
   --header-padding-x: 16px;
-  /* Figma Widget Card frame (node Revenue Overview): rgba(13,74,195,0.13) outer — edge reads as light blue */
-  --widget-card-border: rgba(13, 74, 195, 0.26);
   --nav-width: 244px;
-<<<<<<< HEAD
-  --nav-bg: #ffffff;
-  --nav-link-hover: rgba(13, 74, 195, 0.08);
-  --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-display: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-=======
   /* Widget cards: #0D4AC3 @ 13% opacity, 4px stroke; Figma outer / inner radius */
   --widget-card-border: rgba(13, 74, 195, 0.13);
   --widget-radius-outer: 14px;
   --widget-radius-inner: 10px;
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 *,
@@ -254,11 +232,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-<<<<<<< HEAD
-  background: linear-gradient(160deg, #e8eef5 0%, #dce6f2 45%, #cfd9e8 100%);
-=======
   background: linear-gradient(180deg, var(--color-page-bg) 0%, #e8ecf0 55%, #dde3ea 100%);
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .page {
@@ -532,7 +506,8 @@ body {
   outline: none;
 }
 
-.icon-btn {
+/* MUI Fab — Figma node 25:3984 (All States of Floating Buttons) */
+.sticky-header-fab.MuiFab-root {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -545,53 +520,88 @@ body {
   max-height: 32px;
   padding: 0;
   border-radius: 100px;
-  cursor: pointer;
-  /* Transparent border keeps ghost & solid the same outer diameter (border-box). */
+  /* 1px border on default; focus uses 2px (Figma) without shifting outer size */
   border: 1px solid transparent;
-  box-shadow: var(--shadow-button);
+  box-shadow: var(--shadow-fab);
   transition:
     background-color 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    background-image 0.32s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.32s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.22s ease;
+    border-width 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sticky-header-fab.MuiFab-root:hover {
+  box-shadow: var(--shadow-fab);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .icon-btn {
+  .sticky-header-fab.MuiFab-root {
     transition-duration: 0.01ms;
   }
 }
 
-.icon-btn:focus-visible {
-  outline: 2px solid var(--color-link);
-  outline-offset: 2px;
+/* Outlined configure — default #F7FBFF, hover #E4F1FF, pressed #C6DCFF, focus overlay */
+.sticky-header-fab--ghost.MuiFab-root {
+  border-color: var(--color-blue-500);
+  background-color: var(--color-blue-010);
+  color: var(--color-blue-500);
 }
 
-.icon-btn:active {
-  opacity: 0.88;
+.sticky-header-fab--ghost.MuiFab-root:hover {
+  background-color: var(--color-blue-050);
+  border-color: var(--color-blue-500);
 }
 
-.icon-btn--ghost {
-  border-color: var(--color-link);
-  background: var(--color-brand-tint);
+.sticky-header-fab--ghost.MuiFab-root:active {
+  background-color: var(--color-blue-100);
 }
 
-.icon-btn--ghost:hover {
-  background: rgba(13, 74, 195, 0.1);
-  border-color: #0a3daf;
+.sticky-header-fab--ghost.MuiFab-root .MuiTouchRipple-child {
+  background-color: var(--color-blue-500);
 }
 
-.icon-btn--solid {
+.sticky-header-fab--ghost.MuiFab-root:focus-visible {
+  background-color: var(--icon-btn-focus-overlay);
+  border-width: 2px;
+  border-color: var(--color-blue-500);
+  box-shadow: var(--shadow-fab-focus);
+  outline: none;
+}
+
+/* Solid add — default #0D4AC3; hover/active white overlay; focus 2px ring */
+.sticky-header-fab--solid.MuiFab-root {
   border-color: transparent;
-  background: var(--color-link);
+  background-color: var(--color-blue-500);
+  background-image: none;
+  color: #fff;
 }
 
-.icon-btn--solid:hover {
-  background: #0c42ad;
-  box-shadow: 1px 3px 10px rgba(13, 74, 195, 0.35);
+.sticky-header-fab--solid.MuiFab-root:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)),
+    linear-gradient(var(--color-blue-500), var(--color-blue-500));
+  background-color: var(--color-blue-500);
 }
 
-.icon-btn__glyph {
+.sticky-header-fab--solid.MuiFab-root:active {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    linear-gradient(var(--color-blue-500), var(--color-blue-500));
+}
+
+.sticky-header-fab--solid.MuiFab-root .MuiTouchRipple-child {
+  background-color: #fff;
+}
+
+.sticky-header-fab--solid.MuiFab-root:focus-visible {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+    linear-gradient(var(--color-blue-500), var(--color-blue-500));
+  border-width: 2px;
+  border-color: var(--color-blue-500);
+  box-shadow: var(--shadow-fab-focus);
+  outline: none;
+}
+
+.sticky-header-fab__glyph {
   width: 20px;
   height: 20px;
   display: block;
@@ -600,7 +610,7 @@ body {
   transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.icon-btn--solid .icon-btn__glyph {
+.sticky-header-fab__glyph--add {
   width: 14px;
   height: 14px;
 }
@@ -762,15 +772,6 @@ body {
   height: 100%;
   border-radius: 50%;
   background: conic-gradient(
-<<<<<<< HEAD
-    #22c55e 0deg 72deg,
-    #3b82f6 72deg 144deg,
-    #64748b 144deg 216deg,
-    #f97316 216deg 288deg,
-    #ef4444 288deg 360deg
-  );
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
-=======
     var(--color-green-500) 0deg 72deg,
     var(--color-blue-500) 72deg 144deg,
     var(--color-cool-gray-500) 144deg 216deg,
@@ -778,7 +779,6 @@ body {
     var(--color-red-500) 288deg 360deg
   );
   box-shadow: inset 0 0 0 1px rgba(11, 17, 22, 0.06);
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-donut::after {
@@ -790,13 +790,8 @@ body {
   width: 54%;
   height: 54%;
   border-radius: 50%;
-<<<<<<< HEAD
-  background: #fff;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
-=======
   background: var(--color-surface);
   box-shadow: 0 0 0 1px rgba(11, 17, 22, 0.04);
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-donut-center {
@@ -811,40 +806,23 @@ body {
 
 .widget-donut-total {
   display: block;
-<<<<<<< HEAD
-  font-size: 17px;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.88);
-=======
   font-size: var(--zui-font-title-l-size);
   font-weight: 700;
   color: var(--color-text-high);
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
   line-height: 1.2;
 }
 
 .widget-donut-label {
   display: block;
-<<<<<<< HEAD
-  font-size: 11px;
-  color: rgba(0, 0, 0, 0.5);
-=======
   font-size: var(--zui-font-caption-size);
   color: var(--color-text-medium);
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-donut-delta {
   display: block;
-<<<<<<< HEAD
-  font-size: 12px;
-  font-weight: 600;
-  color: #16a34a;
-=======
   font-size: var(--zui-font-tableheader-size);
   font-weight: 600;
   color: var(--color-green-500);
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
   margin-top: 2px;
 }
 
@@ -852,16 +830,10 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-<<<<<<< HEAD
-  font-size: 13px;
-  color: rgba(0, 0, 0, 0.75);
-  line-height: 1.8;
-=======
   font-size: var(--zui-font-body-m-size);
   line-height: var(--zui-font-body-m-lh);
   letter-spacing: var(--zui-font-body-m-tracking);
   color: var(--color-cool-gray-800);
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-legend li {
@@ -878,21 +850,6 @@ body {
 }
 
 .widget-dot--us {
-<<<<<<< HEAD
-  background: #22c55e;
-}
-.widget-dot--emea {
-  background: #3b82f6;
-}
-.widget-dot--apac {
-  background: #64748b;
-}
-.widget-dot--latam {
-  background: #f97316;
-}
-.widget-dot--other {
-  background: #ef4444;
-=======
   background: var(--color-green-500);
 }
 .widget-dot--emea {
@@ -906,7 +863,6 @@ body {
 }
 .widget-dot--other {
   background: var(--color-red-500);
->>>>>>> parent of 1dfd38f (Change Backgroud Color)
 }
 
 .widget-toolbar {
