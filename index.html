@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage Sticky Header</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="scroll-header.js" defer></script>
+    <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>
     <div class="app-shell">
@@ -118,18 +117,8 @@
                 </div>
 
                 <div class="sticky-header__icon-group">
-                  <button type="button" class="icon-btn icon-btn--ghost" aria-label="Configure homepage">
-                    <img
-                      class="icon-btn__glyph"
-                      src="assets/configure-homepage.svg"
-                      alt=""
-                      width="20"
-                      height="20"
-                    />
-                  </button>
-                  <button type="button" class="icon-btn icon-btn--solid" aria-label="Add">
-                    <img class="icon-btn__glyph" src="assets/add-icon.svg" alt="" width="14" height="14" />
-                  </button>
+                  <span id="sticky-header-configure-root" class="sticky-header__fab-mount"></span>
+                  <span id="sticky-header-add-root" class="sticky-header__fab-mount"></span>
                 </div>
               </div>
             </div>
@@ -155,19 +144,30 @@
                 </div>
                 <div class="widget-overview">
                   <div class="widget-donut-wrap">
-                    <div class="widget-donut" role="img" aria-label="Revenue by region"></div>
+                    <img
+                      class="widget-donut"
+                      src="/assets/revenue-donut-chart.svg"
+                      width="216"
+                      height="216"
+                      alt="Revenue by region"
+                    />
                     <div class="widget-donut-center">
-                      <span class="widget-donut-total">$12.4K</span>
-                      <span class="widget-donut-label">Total</span>
-                      <span class="widget-donut-delta">↑ 10%</span>
+                      <div class="widget-donut-metric">
+                        <span class="widget-donut-total">$12,4K</span>
+                        <span class="widget-donut-label">Total</span>
+                      </div>
+                      <div class="widget-donut-delta" role="status" aria-label="Up 10 percent">
+                        <span class="widget-donut-delta__icon" aria-hidden="true"></span>
+                        <span class="widget-donut-delta__value">10%</span>
+                      </div>
                     </div>
                   </div>
                   <ul class="widget-legend">
-                    <li><span class="widget-dot widget-dot--us"></span> US</li>
-                    <li><span class="widget-dot widget-dot--emea"></span> EMEA</li>
-                    <li><span class="widget-dot widget-dot--apac"></span> APAC</li>
-                    <li><span class="widget-dot widget-dot--latam"></span> LATAM</li>
-                    <li><span class="widget-dot widget-dot--other"></span> Others</li>
+                    <li class="widget-legend__item widget-legend__item--primary"><span class="widget-dot widget-dot--us"></span> US</li>
+                    <li class="widget-legend__item"><span class="widget-dot widget-dot--emea"></span> EMEA</li>
+                    <li class="widget-legend__item"><span class="widget-dot widget-dot--apac"></span> APAC</li>
+                    <li class="widget-legend__item"><span class="widget-dot widget-dot--latam"></span> LATAM</li>
+                    <li class="widget-legend__item"><span class="widget-dot widget-dot--other"></span> Others</li>
                   </ul>
                 </div>
               </article>
